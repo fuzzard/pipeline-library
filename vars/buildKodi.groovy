@@ -392,10 +392,13 @@ def call(Map buildParams = [:]) {
         post {
             always {
                 script {
-                    echo "BUILD_BINARY_ADDONS: $BUILD_BINARY_ADDONS"
-                    echo "env.BUILD_BINARY_ADDONS: $env.BUILD_BINARY_ADDONS"
-                    echo "params.BUILD_BINARY_ADDONS: $params.BUILD_BINARY_ADDONS"
-                    if(env.BUILD_BINARY_ADDONS == true) {
+                    if [ "$BUILD_BINARY_ADDONS" == "true" ]; then
+                      echo "BUILD_BINARY_ADDONS true"
+                    fi
+                    if [ "$BUILD_BINARY_ADDONS" == "false" ]; then
+                      echo "BUILD_BINARY_ADDONS false"
+                    fi
+                    if(env.BUILD_BINARY_ADDONS == 'true') {
                       addonStatusBadge(env.WORKSPACE + '/cmake/addons/.success', env.WORKSPACE + '/cmake/addons/.failure')
                     }
                 }
