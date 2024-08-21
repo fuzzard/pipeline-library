@@ -13,7 +13,7 @@ def call(Map buildParams = [:]) {
 
     // make sure Jenkins job name starts with the platform name, e.g. Android, Linux
     def defaultPlatformChoices = platformsValid.keySet().findAll{ p -> p.toLowerCase() =~ env.JOB_BASE_NAME.toLowerCase().split('-')[0] }.asList()
-    def platformChoices = buildParams.containsKey('platform') && platformsValid.containsKey(buildParams.platform) ? buildParams.platform : Linux_arm64
+    def platformChoices = buildParams.containsKey('platform') && platformsValid.containsKey(buildParams.platform) ? buildParams.platform : 'Linux_arm64'
     def platform = buildParams.containsKey('platform') && platformsValid.containsKey(buildParams.platform) ? buildParams.platform : params.PLATFORM
 
     // Linux
