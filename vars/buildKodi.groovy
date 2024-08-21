@@ -392,7 +392,7 @@ def call(Map buildParams = [:]) {
         post {
             always {
                 script {
-                    if($BUILD_BINARY_ADDONS) {
+                    if(env.BUILD_BINARY_ADDONS) {
                       addonStatusBadge(env.WORKSPACE + '/cmake/addons/.success', env.WORKSPACE + '/cmake/addons/.failure')
                     }
                 }
