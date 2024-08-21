@@ -395,7 +395,7 @@ def call(Map buildParams = [:]) {
                     echo "BUILD_BINARY_ADDONS: $BUILD_BINARY_ADDONS"
                     echo "env.BUILD_BINARY_ADDONS: $env.BUILD_BINARY_ADDONS"
                     echo "params.BUILD_BINARY_ADDONS: $params.BUILD_BINARY_ADDONS"
-                    if(env.BUILD_BINARY_ADDONS) {
+                    if(env.BUILD_BINARY_ADDONS == true) {
                       addonStatusBadge(env.WORKSPACE + '/cmake/addons/.success', env.WORKSPACE + '/cmake/addons/.failure')
                     }
                 }
