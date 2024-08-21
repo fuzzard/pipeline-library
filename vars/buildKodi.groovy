@@ -392,12 +392,6 @@ def call(Map buildParams = [:]) {
         post {
             always {
                 script {
-                    if [ "$BUILD_BINARY_ADDONS" == "true" ]; then
-                      echo "BUILD_BINARY_ADDONS true"
-                    fi
-                    if [ "$BUILD_BINARY_ADDONS" == "false" ]; then
-                      echo "BUILD_BINARY_ADDONS false"
-                    fi
                     if(env.BUILD_BINARY_ADDONS == 'true') {
                       addonStatusBadge(env.WORKSPACE + '/cmake/addons/.success', env.WORKSPACE + '/cmake/addons/.failure')
                     }
